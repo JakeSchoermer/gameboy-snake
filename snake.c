@@ -32,10 +32,21 @@ void draw_border() {
     return;
 }
 
+void checkInput() {
+
+    if (joypad() & J_A) {
+		printf("A");
+        delay(100);
+    }
+
+}
+
 void main(){
     draw_border();
 
-
+    while(1) {
+        checkInput();	
+    }
 
     // printf("Hello World");
 }
