@@ -2,3 +2,5 @@
 bin
 
 tools/gbtd/gbtd.ini
+
+tools/emulicious/Emulicious.ini

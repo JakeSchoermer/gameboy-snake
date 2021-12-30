@@ -7,6 +7,9 @@
 
 UINT8 CHARACTER_SPRITE_ADDR = 0;
 
+UINT8 CHARACTER_SPRITE_X_COORD = 75;
+UINT8 CHARACTER_SPRITE_Y_COORD = 75;
+
 void init() {
 
     DISPLAY_ON;
@@ -27,7 +30,7 @@ void init() {
     //Put character sprite on map
     set_sprite_tile(0, 0);
 
-    move_sprite(0, 75, 75);
+    move_sprite(0, CHARACTER_SPRITE_X_COORD, CHARACTER_SPRITE_Y_COORD);
 
     return;
 }
@@ -39,21 +42,22 @@ void checkInput() {
     }
 
     else if (joypad() & J_UP) {
-    
+        CHARACTER_SPRITE_Y_COORD -= 10;
     }
 
     else if (joypad() & J_DOWN) {
-    
+        CHARACTER_SPRITE_Y_COORD += 10;
     }
 
     else if (joypad() & J_LEFT) {
-    
+        CHARACTER_SPRITE_X_COORD -= 10;
     }
 
     else if (joypad() & J_RIGHT) {
-    
+        CHARACTER_SPRITE_X_COORD += 10;
     }
-
+    move_sprite(0, CHARACTER_SPRITE_X_COORD, CHARACTER_SPRITE_Y_COORD);
+    delay(200);
 }
 
 
