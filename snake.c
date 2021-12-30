@@ -1,5 +1,6 @@
 #include <gb/gb.h>
 #include <stdio.h>
+#include <rand.h>
 #include "snake.h"
 #include "brick.c"
 #include "border_map.c"
@@ -37,10 +38,31 @@ void init() {
 
     move_sprite(0, CHARACTER_SPRITE_X_COORD, CHARACTER_SPRITE_Y_COORD);
     
-    //Spawn Cherry Sprites
+    // Spawn Cherry Sprites - Occupy sprite addresses 1 to 5 (inclusive);
     set_sprite_data(1, 1, cherry_sprite);
-    set_sprite_tile(1, 1); 
-    move_sprite(1, X_OFFSET + 2 * 8, Y_OFFSET + 2 * 8);
+
+    initrand(1);
+
+    for (int i = 0; i < 5; i++) {
+
+        
+
+        // rand function generates between -127 and 128, so we need to add
+        // 127 and divide by 2 to ensure a positive number
+        INT8 x = (rand() + 127) / 2;
+        INT8 y = (rand() + 127) / 2;
+
+        x = (x * 144 / 128) / 8;
+        y = (y * 160 / 128) / 8;
+
+        // 128 / 128 * 144
+
+        // printf("X: %d, Y: %d \n", x, y);
+
+        set_sprite_tile(i + 1, 1); 
+        move_sprite(i + 1 , X_OFFSET + x * 8, Y_OFFSET + y * 8);
+    }
+
 
     return;
 }
