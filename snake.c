@@ -1,33 +1,23 @@
 #include <gb/gb.h>
 #include <stdio.h>
+#include "brick.c"
+#include "border_map.c"
+#include "blankscreen.c"
 
+void init() {
 
-unsigned char Brick[] =
-{
-  0xFF,0xFF,0x81,0xFF,0xBD,0xFF,0xBD,0xE7,
-  0xBD,0xE7,0xBD,0xFF,0x81,0xFF,0xFF,0xFF
-};
+    DISPLAY_ON;
 
-void draw_border() {
-
-    SPRITES_8x8;    
-    
-    // set_sprite_data(0, 8, Brick);
-    // set_sprite_tile(0, 0);
-    // move_sprite(0, 8, 16);
-
-    // set_sprite_data(1, 8, Brick);
-    // set_sprite_tile(1, 0);
-    // move_sprite(1, 16, 16);
-
-
-    for (int i = 0; i <4; i++){
-        set_sprite_data(i, 8, Brick);
-        set_sprite_tile(i, 0);
-        move_sprite(i, (i+1)*8, 16);
-    }
-
+    HIDE_WIN;
     SHOW_SPRITES;
+    SHOW_BKG;
+
+
+    set_bkg_data(0, 1, brick);
+
+    set_bkg_tiles(0,64,20,18,border_map);
+    // set_bkg_data(0, 47, border_map);	
+
 
     return;
 }
@@ -35,18 +25,17 @@ void draw_border() {
 void checkInput() {
 
     if (joypad() & J_A) {
-		printf("A");
-        delay(100);
+        set_bkg_tiles(0,0,20,18,blankScreen);
     }
 
 }
 
+
 void main(){
-    draw_border();
+    init();
 
     while(1) {
-        checkInput();	
+        checkInput();
     }
 
-    // printf("Hello World");
 }

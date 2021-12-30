@@ -15,5 +15,11 @@ make.bat: Makefile
 clean:
 	rm -f bin/*.o bin/*.lst bin/*.map bin/*.gb bin/*~ bin/*.rel bin/*.cdb bin/*.ihx bin/*.lnk bin/*.sym bin/*.asm bin/*.noi bin/*.sav
 
+gbtd:
+	wine ./tools/gbtd/GBTD.exe &
+
+gbmb:
+	wine ./tools/gbmb/GBMB.exe &
+
 run:
-	make && ./emulicious/Emulicious.jar bin/snake.gb -scale 8
+	make && ./tools/emulicious/Emulicious.jar bin/snake.gb -scale 8

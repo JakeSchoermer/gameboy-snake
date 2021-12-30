@@ -21,13 +21,31 @@ To remove all compilation artifacts run `make clean`
 
 ## Run Locally
 
-A copy of [Emulicious] is included for convenience. To compile and run the game in the emulator, simply execute `make run`.
+A copy of [Emulicious](https://emulicious.net/) is included for convenience. To compile and run the game in the emulator, simply execute `make run`.
 
 ## Licence
 
 Licence: Please note that whilst Emulicious is incloded in this repository, that it is not my emulator and is included simply for convenience.
 
 This source code is made available under the MIT Licence. Please see [LICENCE.txt](LICENCE.txt) for more details.
+
+## Tools
+
+Various tools used in development can be found in the tools directory for convenience. Note that the
+
+- [Gameboy tile designer](http://www.devrs.com/gb/hmgd/gbtd.html)
+    - This can be run on Linux using wine. A shortcut has been added to the Makefile for convenience `make gbtd`
+- [Gameboy map builder](http://www.devrs.com/gb/hmgd/gbmb.html)
+    - This can be run on Linux using wine. A shortcut has been added to the Makefile for convenience `make gbmb`
+- Emulicious - See "Run locally" above
+
+
+## Other Resources
+
+As this is my first gameboy game, I thought I'd link other useful resources.
+
+- [GBDK Sprite Tutorial](https://gbdev.gg8.se/wiki/articles/GBDK_Sprite_Tutorial)
+- [Tile and Sprite Tutorial](https://videlais.com/2016/07/04/programming-game-boy-games-using-gbdk-part-2-placing-tiles-and-moving-sprites/) by Digital Ephemera
 
 ### NOTE: THIS PROJECT IS STILL UNDER INITIAL DEVELOPMENT AND NOT YET COMPLETE.
 
