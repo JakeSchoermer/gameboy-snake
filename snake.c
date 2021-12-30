@@ -7,8 +7,13 @@
 
 UINT8 CHARACTER_SPRITE_ADDR = 0;
 
-UINT8 CHARACTER_SPRITE_X_COORD = 75;
-UINT8 CHARACTER_SPRITE_Y_COORD = 75;
+UINT8 CHARACTER_SPRITE_X_COORD = 16;
+UINT8 CHARACTER_SPRITE_Y_COORD = 24;
+
+UINT8 CHARACTER_SPRITE_MIN_X = 16;
+UINT8 CHARACTER_SPRITE_MAX_X = 16 + 8 * 17;
+UINT8 CHARACTER_SPRITE_MIN_Y = 24;
+UINT8 CHARACTER_SPRITE_MAX_Y = 24 + 8 * 15;
 
 void init() {
 
@@ -41,20 +46,24 @@ void checkInput() {
         set_bkg_tiles(0,0,20,18,blankScreen);
     }
 
-    else if (joypad() & J_UP) {
-        CHARACTER_SPRITE_Y_COORD -= 10;
+    else if (joypad() & J_UP
+        && CHARACTER_SPRITE_Y_COORD > CHARACTER_SPRITE_MIN_Y) {
+        CHARACTER_SPRITE_Y_COORD -= 8;
     }
 
-    else if (joypad() & J_DOWN) {
-        CHARACTER_SPRITE_Y_COORD += 10;
+    else if (joypad() & J_DOWN
+        && CHARACTER_SPRITE_Y_COORD < CHARACTER_SPRITE_MAX_Y) {
+        CHARACTER_SPRITE_Y_COORD += 8;
     }
 
-    else if (joypad() & J_LEFT) {
-        CHARACTER_SPRITE_X_COORD -= 10;
+    else if (joypad() & J_LEFT
+        && CHARACTER_SPRITE_X_COORD > CHARACTER_SPRITE_MIN_X) {
+        CHARACTER_SPRITE_X_COORD -= 8;
     }
 
-    else if (joypad() & J_RIGHT) {
-        CHARACTER_SPRITE_X_COORD += 10;
+    else if (joypad() & J_RIGHT
+        && CHARACTER_SPRITE_X_COORD < CHARACTER_SPRITE_MAX_X) {
+        CHARACTER_SPRITE_X_COORD += 8;
     }
     move_sprite(0, CHARACTER_SPRITE_X_COORD, CHARACTER_SPRITE_Y_COORD);
     delay(200);
