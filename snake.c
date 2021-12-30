@@ -45,19 +45,14 @@ void init() {
 
     for (int i = 0; i < 5; i++) {
 
-        
-
         // rand function generates between -127 and 128, so we need to add
         // 127 and divide by 2 to ensure a positive number
         INT8 x = (rand() + 127) / 2;
         INT8 y = (rand() + 127) / 2;
 
+        // Convert to x or y coord and divide by sprite width/height
         x = (x * 144 / 128) / 8;
         y = (y * 160 / 128) / 8;
-
-        // 128 / 128 * 144
-
-        // printf("X: %d, Y: %d \n", x, y);
 
         set_sprite_tile(i + 1, 1); 
         move_sprite(i + 1 , X_OFFSET + x * 8, Y_OFFSET + y * 8);
