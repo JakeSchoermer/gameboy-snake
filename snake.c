@@ -12,12 +12,11 @@ void init() {
     SHOW_SPRITES;
     SHOW_BKG;
 
-
+    // Need to load bricksprite, used in border_map
     set_bkg_data(0, 1, brick);
 
-    set_bkg_tiles(0,64,20,18,border_map);
-    // set_bkg_data(0, 47, border_map);	
-
+    //Center Sprite Map on Screen
+    set_bkg_tiles(0, 64, 20, 18, border_map);
 
     return;
 }
